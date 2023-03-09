@@ -2,9 +2,7 @@ import {
 	Bloom,
 	ChromaticAberration,
 	EffectComposer,
-	Noise,
 	ToneMapping,
-	Vignette,
 } from "@react-three/postprocessing";
 import { BlendFunction } from "postprocessing";
 
@@ -17,7 +15,6 @@ export default function Effects() {
 			autoClear
 			disableNormalPass
 		>
-			<Vignette eskil={false} offset={0.1} darkness={1.1} />
 			<Bloom
 				blendFunction={BlendFunction.ADD}
 				mipmapBlur

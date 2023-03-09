@@ -1,8 +1,6 @@
 import { Lightformer } from "@react-three/drei";
 import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
-import { Vector3 } from "three";
-import { useControls } from "leva";
 
 export default function EnvLights() {
 	const orangeEnv = useRef();

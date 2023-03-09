@@ -21,12 +21,6 @@ import { Color, MeshStandardMaterial } from "three";
 import InstancedShapes from "./InstancedShapes";
 
 const material = new MeshStandardMaterial({ transparent: true });
-const material2 = new MeshStandardMaterial({
-	transparent: true,
-	toneMapped: false,
-	emissiveIntensity: 2,
-	emissive: new Color(2, 0, 0),
-});
 
 export default function Experience() {
 	const texture = useTexture("./Mac/Albums.png");
@@ -126,14 +120,15 @@ export default function Experience() {
 			15.5,
 		);
 		tl.current.to(
-			instancedShapes.current.scale,
+			instancedShapes.current.children[0].scale,
 			{ x: 1, y: 1, z: 1, duration: 2, ease: "easeIn" },
 			15.5,
 		);
+
 		tl.current.to(
-			instancedShapes.current.position,
-			{ z: 100, duration: 3, ease: "easeInOut" },
-			18.5,
+			instancedShapes.current.children[0].position,
+			{ z: 100, duration: 5, ease: "easeInOut" },
+			17.5,
 		);
 	}, []);
 
@@ -171,9 +166,8 @@ export default function Experience() {
 			/>
 			<InstancedShapes
 				ref={instancedShapes}
-				material={material2}
-				position={[0, 0, -20]}
-				rotation={[-Math.PI / 2, 0, 0]}
+				position={[0, 0, -150]}
+				rotation={[-Math.PI, 0, 0]}
 			/>
 
 			<Floor />
@@ -196,7 +190,6 @@ export default function Experience() {
 			</group>
 			<Environment preset="night" frames={Infinity}>
 				<EnvLights />
-				<InstancedShapes />
 			</Environment>
 			<Stars />
 		</group>
