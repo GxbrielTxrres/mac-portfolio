@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }) {
 				gl={{ antialias: false }}
 				camera={{ position: [0, 0.5, 3], fov: 75 }}
 			>
-				<Perf position="bottom-left" />
+				{/* <Perf position="bottom-left" /> */}
 
 				<ScrollControls pages={3} distance={2.5} damping={0.005}>
 					<Experience />
