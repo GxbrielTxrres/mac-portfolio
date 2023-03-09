@@ -45,6 +45,7 @@ export const Mac = forwardRef(function Mac(props, ref) {
 
 	const imageElements = [
 		<TitleAndImage
+			key={0}
 			ref={group}
 			youngText={youngText}
 			kidImage={kidImage}
@@ -54,6 +55,7 @@ export const Mac = forwardRef(function Mac(props, ref) {
 			opacity={1}
 		/>,
 		<TitleAndImage
+			key={1}
 			ref={group2010}
 			youngText={Mac2010Text}
 			kidImage={Mac2010}
@@ -63,6 +65,7 @@ export const Mac = forwardRef(function Mac(props, ref) {
 			opacity={0}
 		/>,
 		<TitleAndImage
+			key={2}
 			ref={kidsAlbumGroup}
 			youngText={kidsAlbumText}
 			kidImage={kidsAlbum}
@@ -72,6 +75,7 @@ export const Mac = forwardRef(function Mac(props, ref) {
 			opacity={0}
 		/>,
 		<TitleAndImage
+			key={3}
 			ref={smilingMacGroup}
 			youngText={smilingMacText}
 			kidImage={smilingMac}
@@ -81,6 +85,7 @@ export const Mac = forwardRef(function Mac(props, ref) {
 			opacity={0}
 		/>,
 		<TitleAndImage
+			key={4}
 			ref={glassesMacGroup}
 			youngText={glassesMacText}
 			kidImage={glassesMac}
@@ -270,5 +275,5 @@ export const Clouds = forwardRef((props, ref) => {
 });
 
 Mac.displayName = "Mac";
-
+Clouds.displayName = "Clouds";
 export default Mac;

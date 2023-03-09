@@ -9,13 +9,7 @@ export const InstancedShapes = forwardRef(function InstancedShapes(
 	{ material, position, rotation },
 	ref,
 ) {
-	const texture = useTexture("./Mac/Albums.png");
-
 	const instancedRef = useRef([]);
-
-	const ballsCount = 250;
-	const matrix = new Matrix4();
-	let colors = new Color();
 
 	// useLayoutEffect(() => {
 	// 	for (let i = 0; i < ballsCount; i++) {

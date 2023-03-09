@@ -45,7 +45,7 @@ export const SpinningBalls = forwardRef(function SpinningBalls(
 		instancedRef.current.material.color.r = 5;
 		instancedRef.current.material.color.g = 2.5;
 		instancedRef.current.material.color.b = 10;
-	}, [colors, matrix]);
+	}, []);
 
 	return (
 		<group ref={ref}>
