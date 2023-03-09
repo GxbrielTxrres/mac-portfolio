@@ -9,10 +9,20 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-three/drei": "^9.57.0",
+    "@react-three/fiber": "^8.11.5",
+    "@react-three/postprocessing": "^2.7.0",
     "eslint": "8.35.0",
     "eslint-config-next": "13.2.3",
+    "gltfjsx": "^6.1.4",
+    "gsap": "^3.11.4",
+    "leva": "^0.9.34",
     "next": "13.2.3",
+    "postprocessing": "^6.30.1",
+    "r3f-perf": "^7.1.2",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "realism-effects": "^1.0.11",
+    "zustand": "^4.3.6"
   }
 }
