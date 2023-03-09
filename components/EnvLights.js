@@ -19,20 +19,6 @@ export default function EnvLights() {
 			60 + Math.abs(Math.sin(clock.elapsedTime * 0.25) * 100);
 	});
 
-	const { lightIntensity, lightScale, lightPosition } = useControls(
-		"EnvLight",
-		{
-			lightIntensity: { value: 50, min: 0, max: 500, step: 0.25 },
-			lightScale: { value: 1, min: 0, max: 50, step: 0.25 },
-			lightPosition: {
-				value: { x: 3, y: 1, z: 1 },
-				min: -50,
-				max: 50,
-				step: 0.001,
-			},
-		},
-	);
-
 	return (
 		<group>
 			<Lightformer
