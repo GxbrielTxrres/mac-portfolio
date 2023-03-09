@@ -45,24 +45,7 @@ export const SpinningBalls = forwardRef(function SpinningBalls(
 		instancedRef.current.material.color.r = 5;
 		instancedRef.current.material.color.g = 2.5;
 		instancedRef.current.material.color.b = 10;
-	}, []);
-
-	useFrame((state) => {
-		// const offset = scroll.offset;
-		// for (let i = 0; i < 200; i++) {
-		// state.camera.position.x = Math.sqrt(
-		// 	Math.abs(Math.sin(offset - 0.75 / 2 + i * 3) * 20),
-		// );
-		// state.camera.position.z =
-		// 	Math.sqrt(Math.abs(Math.cos(offset - 0.75 / 2 + i * 3))) * 5;
-		// 	state.camera.position.x = Math.sqrt(
-		// 		Math.abs(Math.sin(offset + i * 3) * 40) * 20,
-		// 	);
-		// 	MathUtils
-		// 	state.camera.position.z = Math.sin(offset + i * 3) * 20;
-		// }
-		// state.camera.lookAt(0, 0, 0);
-	});
+	}, [colors, matrix]);
 
 	return (
 		<group ref={ref}>

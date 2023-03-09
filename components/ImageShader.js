@@ -128,4 +128,6 @@ export const ImageShader = forwardRef((props, ref) => {
 	);
 });
 
+ImageShader.displayName = "ImageShader";
+
 export default ImageShader;

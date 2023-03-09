@@ -27,14 +27,6 @@ const TitleAndImage = forwardRef(function TitleAndImage(props, ref) {
 		});
 	};
 
-	const animateZoom = (ref, value) => {
-		gsap.to(ref.current.material, {
-			zoom: value,
-			duration: 1,
-			ease: "easeOut",
-		});
-	};
-
 	useEffect(() => {
 		if (greyscale === false) {
 			gsap.to(kidImage.current.material, { zoom: 1, duration: 1 });
@@ -63,6 +55,7 @@ const TitleAndImage = forwardRef(function TitleAndImage(props, ref) {
 				<group position={position} ref={ref}>
 					<mesh>
 						<Image
+							alt=""
 							position-y={-0.15}
 							{...otherProps}
 							ref={kidImage}

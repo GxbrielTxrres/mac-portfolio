@@ -268,3 +268,7 @@ export const Clouds = forwardRef((props, ref) => {
 		</group>
 	);
 });
+
+Mac.displayName = "Mac";
+
+export default Mac;
