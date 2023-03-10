@@ -42,7 +42,7 @@ export default function Experience() {
 		tl.current = gsap.timeline();
 
 		tl.current.to(
-			mac.current?.position,
+			mac.current.position,
 			{ x: 0, y: 1, z: -8, duration: 2.5, ease: "easeInOut" },
 			0,
 		);
@@ -54,7 +54,7 @@ export default function Experience() {
 		);
 
 		tl.current.to(
-			mac.current?.rotation,
+			mac.current.rotation,
 			{ y: -Math.PI / 2, duration: 2.5, ease: "easeOut" },
 			0.25,
 		);
@@ -67,7 +67,7 @@ export default function Experience() {
 		);
 
 		tl.current.to(
-			mac.current?.position,
+			mac.current.position,
 			{ z: -17.5, duration: 2.5, ease: "easeInOut" },
 			3,
 		);
@@ -84,7 +84,7 @@ export default function Experience() {
 			4,
 		);
 		tl.current.to(
-			mac.current?.position,
+			mac.current.position,
 			{ z: -30, duration: 3, ease: "slowMo" },
 			5.5,
 		);
@@ -164,18 +164,12 @@ export default function Experience() {
 
 			<Floor />
 
-			<Suspense fallback={null}>
-				<Mac
-					ref={mac}
-					position={[-1, 0.75, -3]}
-					scale={0.6}
-					rotation-y={-Math.PI / 3}
-				/>
-
-				<Environment preset="night" frames={Infinity}>
-					<EnvLights />
-				</Environment>
-			</Suspense>
+			<Mac
+				ref={mac}
+				position={[-1, 0.75, -3]}
+				scale={0.6}
+				rotation-y={-Math.PI / 3}
+			/>
 			<group ref={imageGroup}>
 				<ImageShader
 					ref={album}
@@ -188,6 +182,9 @@ export default function Experience() {
 				<Clouds ref={clouds} position={[0, 2.5, -15]} />
 			</group>
 
+			<Environment preset="night" frames={Infinity}>
+				<EnvLights />
+			</Environment>
 			<Stars />
 		</group>
 	);

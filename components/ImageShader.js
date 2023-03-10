@@ -111,7 +111,7 @@ extend({ ImgShader });
 
 export const ImageShader = forwardRef((props, ref) => {
 	const { position, scalar, ...otherProps } = props;
-	useFrame((delta) => {
+	useFrame(({ clock }, delta) => {
 		ref.current.children[0].material.uniforms.time.value += delta;
 	});
 
