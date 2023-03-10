@@ -1,6 +1,5 @@
 import { Vector3, Matrix4, Quaternion, Color } from "three";
 import { useRef, useLayoutEffect, forwardRef } from "react";
-import { useFrame } from "@react-three/fiber";
 export const SpinningBalls = forwardRef(function SpinningBalls(
 	{ material, position, rotation },
 	ref,
@@ -14,16 +13,13 @@ export const SpinningBalls = forwardRef(function SpinningBalls(
 	useLayoutEffect(() => {
 		for (let i = 0; i < ballsCount; i++) {
 			const scale = Math.sin(1.2) * i * 0.1;
+
 			matrix.compose(
-				// new Vector3(Math.sin(i + 6) * 50, Math.cos(i + 4) * 50, i * 5),
 				new Vector3(0, i * 4, 0),
-				// new Vector3(
-				// 	Math.sqrt(Math.abs(Math.sin(i * 3) * 20)) * 20,
-				// 	Math.sin(i * 3) * 50,
-				// 	0,
 				new Quaternion(),
 				new Vector3(scale, scale, scale),
 			);
+
 			instancedRef.current.setMatrixAt(i, matrix);
 			instancedRef.current.setColorAt(
 				i,

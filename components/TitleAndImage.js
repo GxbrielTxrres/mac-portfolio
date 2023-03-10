@@ -40,8 +40,8 @@ const TitleAndImage = forwardRef(function TitleAndImage(props, ref) {
 			animateOpacity(kidImage, 0);
 			animateOpacity(youngText, 0);
 		} else {
-			animateOpacity(kidImage, 1);
-			animateOpacity(youngText, 1);
+			animateOpacity(kidImage, 1.3);
+			animateOpacity(youngText, 1.3);
 		}
 	}, [greyscale, followModel]);
 

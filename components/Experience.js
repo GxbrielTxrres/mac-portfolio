@@ -1,23 +1,16 @@
-import TitleAndImage from "./TitleAndImage";
 import Floor from "./Floor";
 import Effects from "./Effects";
 import { Clouds, Mac } from "./Mac";
 
 import gsap from "gsap";
 
-import {
-	Center,
-	Environment,
-	Stars,
-	useScroll,
-	useTexture,
-} from "@react-three/drei";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { Environment, Stars, useScroll, useTexture } from "@react-three/drei";
+import { Suspense, useLayoutEffect, useRef } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import EnvLights from "./EnvLights";
 import ImageShader from "./ImageShader";
 import SpinningBalls from "./SpinningBalls";
-import { Color, MeshStandardMaterial } from "three";
+import { MeshStandardMaterial } from "three";
 import InstancedShapes from "./InstancedShapes";
 
 const material = new MeshStandardMaterial({ transparent: true });
@@ -36,9 +29,8 @@ export default function Experience() {
 	const instancedShapes = useRef();
 
 	const scroll = useScroll();
-	const { camera } = useThree();
 
-	useFrame(({ camera }) => {
+	useFrame(() => {
 		tl.current.seek(scroll.offset * tl.current.duration());
 
 		spinningBalls.current.position.z = scroll.offset * 20;
@@ -50,7 +42,7 @@ export default function Experience() {
 		tl.current = gsap.timeline();
 
 		tl.current.to(
-			mac.current.position,
+			mac.current?.position,
 			{ x: 0, y: 1, z: -8, duration: 2.5, ease: "easeInOut" },
 			0,
 		);
@@ -62,7 +54,7 @@ export default function Experience() {
 		);
 
 		tl.current.to(
-			mac.current.rotation,
+			mac.current?.rotation,
 			{ y: -Math.PI / 2, duration: 2.5, ease: "easeOut" },
 			0.25,
 		);
@@ -75,7 +67,7 @@ export default function Experience() {
 		);
 
 		tl.current.to(
-			mac.current.position,
+			mac.current?.position,
 			{ z: -17.5, duration: 2.5, ease: "easeInOut" },
 			3,
 		);
@@ -92,7 +84,7 @@ export default function Experience() {
 			4,
 		);
 		tl.current.to(
-			mac.current.position,
+			mac.current?.position,
 			{ z: -30, duration: 3, ease: "slowMo" },
 			5.5,
 		);
@@ -171,12 +163,19 @@ export default function Experience() {
 			/>
 
 			<Floor />
-			<Mac
-				ref={mac}
-				position={[-1, 0.75, -3]}
-				scale={0.6}
-				rotation-y={-Math.PI / 3}
-			/>
+
+			<Suspense fallback={null}>
+				<Mac
+					ref={mac}
+					position={[-1, 0.75, -3]}
+					scale={0.6}
+					rotation-y={-Math.PI / 3}
+				/>
+
+				<Environment preset="night" frames={Infinity}>
+					<EnvLights />
+				</Environment>
+			</Suspense>
 			<group ref={imageGroup}>
 				<ImageShader
 					ref={album}
@@ -188,9 +187,7 @@ export default function Experience() {
 				/>
 				<Clouds ref={clouds} position={[0, 2.5, -15]} />
 			</group>
-			<Environment preset="night" frames={Infinity}>
-				<EnvLights />
-			</Environment>
+
 			<Stars />
 		</group>
 	);

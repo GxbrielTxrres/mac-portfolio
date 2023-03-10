@@ -1,5 +1,5 @@
 import { styles, config } from "@/styles/styles";
-import { CameraShake, ScrollControls } from "@react-three/drei";
+import { CameraShake, Loader, ScrollControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Perf } from "r3f-perf";
 import Experience from "../../components/Experience";
@@ -9,7 +9,7 @@ export default function App({ Component, pageProps }) {
 		<>
 			<Canvas
 				style={{ ...styles }}
-				gl={{ antialias: false }}
+				gl={{ antialias: false, powerPreference: "high-performance" }}
 				camera={{ position: [0, 0.5, 3], fov: 75 }}
 			>
 				{/* <Perf position="bottom-left" /> */}
@@ -20,6 +20,7 @@ export default function App({ Component, pageProps }) {
 
 				<CameraShake {...config} />
 			</Canvas>
+			<Loader />
 			<Component {...pageProps} />
 		</>
 	);
